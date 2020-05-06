@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'golang class:' do
+describe 'etcd class:' do
   context 'default parameters' do
     it 'runs successfully' do
       pp = <<-EOS
