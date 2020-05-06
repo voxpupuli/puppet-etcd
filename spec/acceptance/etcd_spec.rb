@@ -1,14 +1,11 @@
 require 'spec_helper_acceptance'
 
 describe 'etcd class:' do
-  context 'default parameters' do
+  context 'version specified' do
     it 'runs successfully' do
       pp = <<-EOS
       class { 'etcd':
         version => '3.3.20',
-        config  => {
-          'data-dir' => '/var/lib/etcd',
-        },
       }
       EOS
 
@@ -32,11 +29,7 @@ describe 'etcd class:' do
   context 'upgrades etcd' do
     it 'runs successfully' do
       pp = <<-EOS
-      class { 'etcd':
-        config => {
-          'data-dir' => '/var/lib/etcd',
-        },
-      }
+      include etcd
       EOS
 
       apply_manifest(pp, catch_failures: true)
