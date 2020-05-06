@@ -150,4 +150,3 @@ branches:
     - master
     - /^v\d/
 notifications:
-  email: treydock@gmail.com

@@ -37,6 +37,7 @@
     - set: ubuntu-1804
       collection: puppet6
   user: tailored-automation
+  notifications: []
 .gitlab-ci.yml:
   delete: true
 appveyor.yml:
