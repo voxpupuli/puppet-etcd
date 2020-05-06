@@ -98,8 +98,8 @@ class etcd (
     group           => 'root',
     require         => File[$install_dir],
     before          => [
-      File["${bin_dir}/etcd"],
-      File["${bin_dir}/etcdctl"],
+      File['etcd'],
+      File['etcdctl'],
     ]
   }
 
@@ -156,7 +156,7 @@ class etcd (
     owner  => $user,
     group  => $group,
     mode   => '0700',
-    before => Service['etcd'],
+    notify => Service['etcd'],
   }
 
   if $config['wal-dir'] {
@@ -166,7 +166,7 @@ class etcd (
       owner  => $user,
       group  => $group,
       mode   => '0700',
-      before => Service['etcd'],
+      notify => Service['etcd'],
     }
   }
 
