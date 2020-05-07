@@ -1,7 +1,7 @@
 require 'spec_helper_acceptance'
 
 describe 'etcd class:' do
-  context 'version specified' do
+  context 'default parameters' do
     it 'runs successfully' do
       pp = <<-EOS
       class { 'etcd':

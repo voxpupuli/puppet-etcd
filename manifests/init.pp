@@ -35,8 +35,6 @@
 #   The etcd group
 # @param group_gid
 #   The etcd group GID
-# @param data_dir
-#   The path to data directory
 # @param config_path
 #   The path to etcd YAML configuration
 # @param config
@@ -58,9 +56,8 @@ class etcd (
   Optional[Integer] $user_uid = undef,
   String[1] $group = 'etcd',
   Optional[Integer] $group_gid = undef,
-  Stdlib::Absolutepath $data_dir = '/var/lib/etcd',
   Stdlib::Absolutepath $config_path = '/etc/etcd.yaml',
-  Hash $config = {},
+  Hash $config = {'data-dir' => '/var/lib/etcd'},
   Integer $max_open_files = 40000,
 ) {
 
@@ -69,6 +66,9 @@ class etcd (
   }
   if $facts['service_provider'] != 'systemd' {
     fail('Module etcd only supported on systems using systemd')
+  }
+  if ! $config['data-dir'] {
+    fail('Module etcd requires data-dir be specified in config Hash')
   }
 
   case $arch {
@@ -79,12 +79,6 @@ class etcd (
 
   $_download_url = pick($download_url, "${base_url}/v${version}/etcd-v${version}-${os}-${real_arch}.tar.gz")
   $install_dir = "${extract_dir}/etcd-${version}"
-
-  $default_config = {
-    'data-dir' => $data_dir,
-  }
-  $_config = filter($default_config + $config) |$key, $value| { $value =~ NotUndef }
-
 
   file { $install_dir:
     ensure => 'directory',
@@ -129,7 +123,7 @@ class etcd (
       shell      => '/bin/false',
       gid        => $group,
       uid        => $user_uid,
-      home       => $_config['data-dir'],
+      home       => $config['data-dir'],
       managehome => false,
       system     => true,
       before     => Service['etcd'],
@@ -152,23 +146,23 @@ class etcd (
     owner   => $user,
     group   => $group,
     mode    => '0600',
-    content => to_yaml($_config),
+    content => to_yaml($config),
     notify  => Service['etcd'],
   }
 
   file { 'etcd-data-dir':
     ensure => 'directory',
-    path   => $_config['data-dir'],
+    path   => $config['data-dir'],
     owner  => $user,
     group  => $group,
     mode   => '0700',
     notify => Service['etcd'],
   }
 
-  if $_config['wal-dir'] {
+  if $config['wal-dir'] {
     file { 'etcd-wal-dir':
       ensure => 'directory',
-      path   => $_config['wal-dir'],
+      path   => $config['wal-dir'],
       owner  => $user,
       group  => $group,
       mode   => '0700',
