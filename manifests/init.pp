@@ -176,7 +176,7 @@ class etcd (
   }
 
   if versioncmp($facts['puppetversion'],'6.1.0') < 0 {
-    # Puppet 5 doesn't have https://tickets.puppetlabs.com/browse/PUP-3483
+    # Puppet 5 does not execute 'systemctl daemon-reload' automatically (https://tickets.puppetlabs.com/browse/PUP-3483)
     # and camptocamp/systemd only creates this relationship when managing the service
     Class['systemd::systemctl::daemon_reload'] -> Service['etcd']
   }
