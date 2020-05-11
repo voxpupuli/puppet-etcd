@@ -41,12 +41,13 @@ To install and run a single instance of etcd it's sufficient to just include the
 include etcd
 ```
 
-All configuration is done via the `config` parameter, example:
+All configuration for etcd.yaml is done via the `config` parameter, example:
 
 ```puppet
 class { 'etcd':
   config => {
-    'wal-dir' => '/etcd-wal',
+    'data-dir' => '/var/lib/etcd',
+    'wal-dir'  => '/etcd-wal',
   },
 }
 ```
@@ -59,6 +60,7 @@ Adjust `name`, `initial-advertise-peer-urls` and `advertise-client-urls` for eac
 ```puppet
 class { 'etcd':
   config => {
+    'data-dir'                    => '/var/lib/etcd',
     'name'                        => 'infra1',
     'initial-advertise-peer-urls' => 'http://10.0.1.10:2380',
     'listen-peer-urls'            => 'http://0.0.0.0:2380',
