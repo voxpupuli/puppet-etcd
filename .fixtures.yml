@@ -9,9 +9,9 @@ fixtures:
       ref: v6.0.0
     archive:
       repo: https://github.com/voxpupuli/puppet-archive.git
-      ref: v1.0.0
+      ref: v4.0.0
     systemd:
       repo: https://github.com/camptocamp/puppet-systemd.git
-      ref: 1.0.0
+      ref: 2.0.0
   symlinks:
     etcd: "#{source_dir}"
