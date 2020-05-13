@@ -2,9 +2,11 @@
   "name": "tailoredautomation-etcd",
   "version": "0.1.0",
   "author": "tailoredautomation",
-  "summary": "",
+  "summary": "Etcd Puppet Module",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/tailored-automation/puppet-module-etcd",
+  "project_page": "https://github.com/tailored-automation/puppet-module-etcd",
+  "issues_url": "https://github.com/tailored-automation/puppet-module-etcd/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
