@@ -1,6 +1,6 @@
 {
   "name": "tailoredautomation-etcd",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "tailoredautomation",
   "summary": "Etcd Puppet Module",
   "license": "Apache-2.0",
@@ -70,7 +70,7 @@
       "version_requirement": ">= 5.5.10 < 7.0.0"
     }
   ],
-  "pdk-version": "1.13.0",
+  "pdk-version": "1.17.0",
   "template-url": "https://github.com/treydock/pdk-templates.git#master",
   "template-ref": "heads/master-0-g692bc69"
 }
