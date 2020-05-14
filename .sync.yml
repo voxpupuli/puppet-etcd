@@ -38,7 +38,6 @@
       collection: puppet6
   user: tailoredautomation
   secure: "bK8RBBMcQeUtEl/+V2FFnnRTmJafFw35wVeLACSepK8UER6VzG5ryyplfNmJy8gj8ohZxv1DIERF9IYEbeJvih+5vepZ8RYE0uvwLJgdVFMWVvX1MJCaJkRhKLQpuQT1uFC3jFgxqCjHZYZvxCn8BWifNL+f6fYPvjtcKB+eB2k2rCR7G27N0O6l9y+d586/RaPi2cjUQm9oqaHeLD2UrAU22F6LwrYcHkZkAvZR8n+AaMpeAwbf7bFfpt/VzFTgd1pW4yrD48BmFwv/+OEBqeQAoMk1MlM8HL64IQk/KByeSG/6KdJh2nsnlkLpnjZktnLmzb8V3LtB/8PUBYNBi9bn+hXQRghdUVGM6gI+6nLUT18y1jot5+m7b0wcAlTm23InVmOH+K4YXoykVq/hq9FdjvuLwwCJJ2DF8A1QNB1fiWwJtWOe76KwWXzH/LWxyiG9hvhUIG+kAV4VGLPnSmsgkWRhd/FhEVpIkWAulaDSo0T8EZVfwWmelP/vqcjteUMD6PWGGFWUy/Fxz7odCIn5v/X2ZhAKgbNlzlA5sGfGtq9i1bE0Q8n5/ZdDp7I239Tb3sI6RIi+C3f56Wl9IqiAbZK8nDZ7kyGLJMBxVLVLgMCUSqT8j+t48XXxaiiNRLzOqy7ycPEyt5CnBpX91fVO3q0cCDCEmyRwimKHiTQ="
-  notifications: []
 Rakefile:
   changelog_user: tailored-automation
 .gitlab-ci.yml:
