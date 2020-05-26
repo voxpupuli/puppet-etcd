@@ -150,7 +150,7 @@ describe 'etcd' do
           {
             config: {
               'data-dir' => '/var/lib/etcd',
-              'wal-dir' => '/var/lib/etcd-wal',
+              'wal-dir' => '/var/lib/var/lib/etcd/wal',
             },
           }
         end
@@ -160,14 +160,14 @@ describe 'etcd' do
           config = YAML.safe_load(content)
           expected_config = {
             'data-dir' => '/var/lib/etcd',
-            'wal-dir' => '/var/lib/etcd-wal',
+            'wal-dir' => '/var/lib/var/lib/etcd/wal',
           }
           expect(config).to eq(expected_config)
         end
         it do
           is_expected.to contain_file('etcd-wal-dir').with(
             ensure: 'directory',
-            path: '/var/lib/etcd-wal',
+            path: '/var/lib/var/lib/etcd/wal',
             owner: 'etcd',
             group: 'etcd',
             mode: '0700',
@@ -203,7 +203,7 @@ describe 'etcd' do
             config_path: '/etc/etcd-config.yaml',
             config: {
               'data-dir' => '/etcd-data',
-              'wal-dir' => '/etcd-wal',
+              'wal-dir' => '/var/lib/etcd/wal',
             },
             max_open_files: 4096,
           }
@@ -293,7 +293,7 @@ describe 'etcd' do
           config = YAML.safe_load(content)
           expected_config = {
             'data-dir' => '/etcd-data',
-            'wal-dir'  => '/etcd-wal',
+            'wal-dir'  => '/var/lib/etcd/wal',
           }
           expect(config).to eq(expected_config)
         end
@@ -310,7 +310,7 @@ describe 'etcd' do
         it do
           is_expected.to contain_file('etcd-wal-dir').with(
             ensure: 'directory',
-            path: '/etcd-wal',
+            path: '/var/lib/etcd/wal',
             owner: 'etcd-user',
             group: 'etcd-group',
             mode: '0700',
