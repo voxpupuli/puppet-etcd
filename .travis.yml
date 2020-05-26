@@ -1,11 +1,15 @@
 ---
+os: linux
 dist: xenial
 language: ruby
 cache: bundler
 before_install:
   - bundle -v
   - rm -f Gemfile.lock
-  - gem update --system $RUBYGEMS_VERSION
+  - "# Update system gems if requested. This is useful to temporarily workaround troubles in the test runner"
+  - "# See https://github.com/puppetlabs/pdk-templates/commit/705154d5c437796b821691b707156e1b056d244f for an example of how this was used"
+  - "# Ignore exit code of SIGPIPE'd yes to not fail with shell's pipefail set"
+  - '[ -z "$RUBYGEMS_VERSION" ] || (yes || true) | gem update --system $RUBYGEMS_VERSION'
   - gem --version
   - bundle -v
 script:
@@ -23,7 +27,7 @@ stages:
   -
     if: tag =~ ^v\d
     name: deploy
-matrix:
+jobs:
   fast_finish: true
   include:
     -
@@ -150,9 +154,10 @@ branches:
     - master
     - /^v\d/
 notifications:
+  email: false
 deploy:
   provider: puppetforge
-  user: tailoredautomation
+  username: tailoredautomation
   password:
     secure: "bK8RBBMcQeUtEl/+V2FFnnRTmJafFw35wVeLACSepK8UER6VzG5ryyplfNmJy8gj8ohZxv1DIERF9IYEbeJvih+5vepZ8RYE0uvwLJgdVFMWVvX1MJCaJkRhKLQpuQT1uFC3jFgxqCjHZYZvxCn8BWifNL+f6fYPvjtcKB+eB2k2rCR7G27N0O6l9y+d586/RaPi2cjUQm9oqaHeLD2UrAU22F6LwrYcHkZkAvZR8n+AaMpeAwbf7bFfpt/VzFTgd1pW4yrD48BmFwv/+OEBqeQAoMk1MlM8HL64IQk/KByeSG/6KdJh2nsnlkLpnjZktnLmzb8V3LtB/8PUBYNBi9bn+hXQRghdUVGM6gI+6nLUT18y1jot5+m7b0wcAlTm23InVmOH+K4YXoykVq/hq9FdjvuLwwCJJ2DF8A1QNB1fiWwJtWOe76KwWXzH/LWxyiG9hvhUIG+kAV4VGLPnSmsgkWRhd/FhEVpIkWAulaDSo0T8EZVfwWmelP/vqcjteUMD6PWGGFWUy/Fxz7odCIn5v/X2ZhAKgbNlzlA5sGfGtq9i1bE0Q8n5/ZdDp7I239Tb3sI6RIi+C3f56Wl9IqiAbZK8nDZ7kyGLJMBxVLVLgMCUSqT8j+t48XXxaiiNRLzOqy7ycPEyt5CnBpX91fVO3q0cCDCEmyRwimKHiTQ="
   on:
