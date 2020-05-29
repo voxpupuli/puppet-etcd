@@ -47,7 +47,7 @@ All configuration for etcd.yaml is done via the `config` parameter, example:
 class { 'etcd':
   config => {
     'data-dir' => '/var/lib/etcd',
-    'wal-dir'  => '/etcd-wal',
+    'wal-dir'  => '/var/lib/etcd/wal',
   },
 }
 ```
