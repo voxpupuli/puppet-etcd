@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v0.3.0](https://github.com/tailored-automation/puppet-module-etcd/tree/v0.3.0) (2020-07-20)
+
+[Full Changelog](https://github.com/tailored-automation/puppet-module-etcd/compare/v0.2.0...v0.3.0)
+
+### UNCATEGORIZED PRS; GO LABEL THEM
+
+- Use https consistently for installing module dependencies [\#8](https://github.com/tailored-automation/puppet-module-etcd/pull/8) ([ghoneycutt](https://github.com/ghoneycutt))
+- wal-dir needs to be a directory in which the etcd user can write [\#7](https://github.com/tailored-automation/puppet-module-etcd/pull/7) ([ghoneycutt](https://github.com/ghoneycutt))
+
 ## [v0.2.0](https://github.com/tailored-automation/puppet-module-etcd/tree/v0.2.0) (2020-05-13)
 
 [Full Changelog](https://github.com/tailored-automation/puppet-module-etcd/compare/22116ccd519d55d1cb653d1d84d281d250e5046c...v0.2.0)
