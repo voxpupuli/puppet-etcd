@@ -10,7 +10,7 @@ HOSTS:
       - '/usr/sbin/init'
     docker_image_commands:
       - 'yum install -y dnf-utils'
-      - 'dnf config-manager --set-enabled PowerTools'
+      - 'dnf config-manager --set-enabled powertools'
       - 'yum install -y wget which cronie iproute initscripts'
     docker_container_name: 'etcd-el8'
 CONFIG:

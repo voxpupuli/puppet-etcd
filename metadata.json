@@ -67,10 +67,10 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.10 < 7.0.0"
+      "version_requirement": ">= 5.5.10 < 8.0.0"
     }
   ],
-  "pdk-version": "1.17.0",
+  "pdk-version": "1.18.1",
   "template-url": "https://github.com/tailored-automation/pdk-templates.git#master",
-  "template-ref": "heads/master-0-gd098669"
+  "template-ref": "heads/master-0-g2163167"
 }
