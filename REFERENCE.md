@@ -26,25 +26,25 @@ include etcd
 
 The following parameters are available in the `etcd` class:
 
-* [`version`](#version)
-* [`base_url`](#base_url)
-* [`os`](#os)
-* [`arch`](#arch)
-* [`download_url`](#download_url)
-* [`download_dir`](#download_dir)
-* [`extract_dir`](#extract_dir)
-* [`bin_dir`](#bin_dir)
-* [`manage_user`](#manage_user)
-* [`manage_group`](#manage_group)
-* [`user`](#user)
-* [`user_uid`](#user_uid)
-* [`group`](#group)
-* [`group_gid`](#group_gid)
-* [`config_path`](#config_path)
-* [`config`](#config)
-* [`max_open_files`](#max_open_files)
+* [`version`](#-etcd--version)
+* [`base_url`](#-etcd--base_url)
+* [`os`](#-etcd--os)
+* [`arch`](#-etcd--arch)
+* [`download_url`](#-etcd--download_url)
+* [`download_dir`](#-etcd--download_dir)
+* [`extract_dir`](#-etcd--extract_dir)
+* [`bin_dir`](#-etcd--bin_dir)
+* [`manage_user`](#-etcd--manage_user)
+* [`manage_group`](#-etcd--manage_group)
+* [`user`](#-etcd--user)
+* [`user_uid`](#-etcd--user_uid)
+* [`group`](#-etcd--group)
+* [`group_gid`](#-etcd--group_gid)
+* [`config_path`](#-etcd--config_path)
+* [`config`](#-etcd--config)
+* [`max_open_files`](#-etcd--max_open_files)
 
-##### <a name="version"></a>`version`
+##### <a name="-etcd--version"></a>`version`
 
 Data type: `String`
 
@@ -53,7 +53,7 @@ Not used if download_url is defined.
 
 Default value: `'3.4.7'`
 
-##### <a name="base_url"></a>`base_url`
+##### <a name="-etcd--base_url"></a>`base_url`
 
 Data type: `Stdlib::HTTPUrl`
 
@@ -62,7 +62,7 @@ Not used if download_url is defined.
 
 Default value: `'https://github.com/etcd-io/etcd/releases/download'`
 
-##### <a name="os"></a>`os`
+##### <a name="-etcd--os"></a>`os`
 
 Data type: `String[1]`
 
@@ -71,7 +71,7 @@ Not used if download_url is defined.
 
 Default value: `downcase($facts['kernel'])`
 
-##### <a name="arch"></a>`arch`
+##### <a name="-etcd--arch"></a>`arch`
 
 Data type: `String[1]`
 
@@ -80,15 +80,15 @@ Not used if download_url is defined.
 
 Default value: `$facts['os']['architecture']`
 
-##### <a name="download_url"></a>`download_url`
+##### <a name="-etcd--download_url"></a>`download_url`
 
 Data type: `Optional[Stdlib::HTTPUrl]`
 
 Alternative location to download etcd binaries
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="download_dir"></a>`download_dir`
+##### <a name="-etcd--download_dir"></a>`download_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -96,7 +96,7 @@ The directory of where to download etcd
 
 Default value: `'/tmp'`
 
-##### <a name="extract_dir"></a>`extract_dir`
+##### <a name="-etcd--extract_dir"></a>`extract_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -104,7 +104,7 @@ The directory where to extract etcd
 
 Default value: `'/opt'`
 
-##### <a name="bin_dir"></a>`bin_dir`
+##### <a name="-etcd--bin_dir"></a>`bin_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -112,23 +112,23 @@ The path to bin directory for etcd and etcdctl symlinks
 
 Default value: `'/usr/bin'`
 
-##### <a name="manage_user"></a>`manage_user`
+##### <a name="-etcd--manage_user"></a>`manage_user`
 
 Data type: `Boolean`
 
 Boolean that determines if etcd user is managed
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="manage_group"></a>`manage_group`
+##### <a name="-etcd--manage_group"></a>`manage_group`
 
 Data type: `Boolean`
 
 Boolean that determines if etcd group is managed
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="user"></a>`user`
+##### <a name="-etcd--user"></a>`user`
 
 Data type: `String[1]`
 
@@ -136,15 +136,15 @@ The etcd user
 
 Default value: `'etcd'`
 
-##### <a name="user_uid"></a>`user_uid`
+##### <a name="-etcd--user_uid"></a>`user_uid`
 
 Data type: `Optional[Integer]`
 
 The etcd user UID
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="group"></a>`group`
+##### <a name="-etcd--group"></a>`group`
 
 Data type: `String[1]`
 
@@ -152,15 +152,15 @@ The etcd group
 
 Default value: `'etcd'`
 
-##### <a name="group_gid"></a>`group_gid`
+##### <a name="-etcd--group_gid"></a>`group_gid`
 
 Data type: `Optional[Integer]`
 
 The etcd group GID
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="config_path"></a>`config_path`
+##### <a name="-etcd--config_path"></a>`config_path`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -168,15 +168,15 @@ The path to etcd YAML configuration
 
 Default value: `'/etc/etcd.yaml'`
 
-##### <a name="config"></a>`config`
+##### <a name="-etcd--config"></a>`config`
 
 Data type: `Hash`
 
 The config values to pass to etcd
 
-Default value: `{'data-dir' => '/var/lib/etcd'}`
+Default value: `{ 'data-dir' => '/var/lib/etcd' }`
 
-##### <a name="max_open_files"></a>`max_open_files`
+##### <a name="-etcd--max_open_files"></a>`max_open_files`
 
 Data type: `Integer`
 
