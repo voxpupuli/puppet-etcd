@@ -57,10 +57,9 @@ class etcd (
   String[1] $group = 'etcd',
   Optional[Integer] $group_gid = undef,
   Stdlib::Absolutepath $config_path = '/etc/etcd.yaml',
-  Hash $config = {'data-dir' => '/var/lib/etcd'},
+  Hash $config = { 'data-dir' => '/var/lib/etcd' },
   Integer $max_open_files = 40000,
 ) {
-
   if $os != 'linux' {
     fail("Module etcd only supports Linux, not ${os}")
   }
@@ -100,7 +99,7 @@ class etcd (
     before          => [
       File['etcd'],
       File['etcdctl'],
-    ]
+    ],
   }
 
   file { 'etcd':
