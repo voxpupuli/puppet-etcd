@@ -6,7 +6,7 @@
 <title>
   Puppet Class: etcd
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -82,6 +82,7 @@
 </div>
 
 
+
 <div class="tags">
   
   <div class="examples">
@@ -125,8 +126,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Base URL of where to download etcd binaries. Not used if download_url is
-defined.</p>
+<p>Base URL of where to download etcd binaries. Not used if download_url is defined.</p>
 </div>
       
     </li>
@@ -373,7 +373,7 @@ defined.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>{&#39;data-dir&#39; =&gt; &#39;/var/lib/etcd&#39;}</tt>)</em>
+        <em class="default">(defaults to: <tt>{ &#39;data-dir&#39; =&gt; &#39;/var/lib/etcd&#39; }</tt>)</em>
       
       
         &mdash;
@@ -555,8 +555,7 @@ defined.</p>
 184
 185
 186
-187
-188</pre>
+187</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 44</span>
@@ -577,10 +576,9 @@ class etcd (
   String[1] $group = &#39;etcd&#39;,
   Optional[Integer] $group_gid = undef,
   Stdlib::Absolutepath $config_path = &#39;/etc/etcd.yaml&#39;,
-  Hash $config = {&#39;data-dir&#39; =&gt; &#39;/var/lib/etcd&#39;},
+  Hash $config = { &#39;data-dir&#39; =&gt; &#39;/var/lib/etcd&#39; },
   Integer $max_open_files = 40000,
 ) {
-
   if $os != &#39;linux&#39; {
     fail(&quot;Module etcd only supports Linux, not ${os}&quot;)
   }
@@ -620,7 +618,7 @@ class etcd (
     before          =&gt; [
       File[&#39;etcd&#39;],
       File[&#39;etcdctl&#39;],
-    ]
+    ],
   }
 
   file { &#39;etcd&#39;:

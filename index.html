@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -71,8 +71,7 @@
 <p><a href="#setup-requirements">Setup requirements</a></p>
 </li></ul>
 </li><li>
-<p><a href="#usage">Usage - Configuration options and additional
-functionality</a></p>
+<p><a href="#usage">Usage - Configuration options and additional functionality</a></p>
 <ul><li>
 <p><a href="#basic-etcd">Basic Etcd</a></p>
 </li><li>
@@ -92,34 +91,28 @@ functionality</a></p>
 
 <h3 id="label-Documented+with+Puppet+Strings">Documented with Puppet Strings</h3>
 
-<p><a href="http://tailored-automation.github.io/puppet-module-etcd/">Puppet
-Strings documentation</a></p>
+<p><a href="http://tailored-automation.github.io/puppet-module-etcd/">Puppet Strings documentation</a></p>
 
 <h2 id="label-Setup+-+The+basics+of+getting+started+with+Etcd">Setup - The basics of getting started with Etcd</h2>
 
 <h2 id="label-What+etcd+affects">What etcd affects</h2>
 
-<p>This module will download the compiled binaries for etcd and extra the
-archive and install the necessary binaries, configuration files and
-services.</p>
+<p>This module will download the compiled binaries for etcd and extra the archive and install the necessary binaries, configuration files and services.</p>
 
 <h2 id="label-Setup+requirements">Setup requirements</h2>
 
-<p>All module dependencies are listed in this module&#39;s
-<code>metadata.json</code>.</p>
+<p>All module dependencies are listed in this module’s <code>metadata.json</code>.</p>
 
 <h2 id="label-Usage+-+Configuration+options+and+additional+functionality">Usage - Configuration options and additional functionality</h2>
 
 <h3 id="label-Basic+Etcd">Basic Etcd</h3>
 
-<p>To install and run a single instance of etcd it&#39;s sufficient to just
-include the <code>etcd</code> class:</p>
+<p>To install and run a single instance of etcd it’s sufficient to just include the <code>etcd</code> class:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_etcd'>etcd</span>
 </code></pre>
 
-<p>All configuration for etcd.yaml is done via the <code>config</code>
-parameter, example:</p>
+<p>All configuration for etcd.yaml is done via the <code>config</code> parameter, example:</p>
 
 <pre class="code ruby"><code class="ruby">class { &#39;etcd&#39;:
   config =&gt; {
@@ -131,9 +124,7 @@ parameter, example:</p>
 
 <h3 id="label-Clustered+Etcd">Clustered Etcd</h3>
 
-<p>The following is an example of a clustered etcd setup. Adjust
-<code>name</code>, <code>initial-advertise-peer-urls</code> and
-<code>advertise-client-urls</code> for each host in the cluster.</p>
+<p>The following is an example of a clustered etcd setup. Adjust <code>name</code>, <code>initial-advertise-peer-urls</code> and <code>advertise-client-urls</code> for each host in the cluster.</p>
 
 <pre class="code ruby"><code class="ruby">class { &#39;etcd&#39;:
   config =&gt; {
@@ -152,24 +143,20 @@ parameter, example:</p>
 
 <h3 id="label-Etcd+Upgrades">Etcd Upgrades</h3>
 
-<p>Upgrades using this module are performed by increasing the value provided
-to <code>version</code>.</p>
+<p>Upgrades using this module are performed by increasing the value provided to <code>version</code>.</p>
 
-<p>If the previous version was <code>3.4.7</code> then the following would
-upgrade etcd to <code>4.0.0</code>:</p>
+<p>If the previous version was <code>3.4.7</code> then the following would upgrade etcd to <code>4.0.0</code>:</p>
 
 <pre class="code ruby"><code class="ruby">class { &#39;etcd&#39;:
   version =&gt; &#39;4.0.0&#39;,
 }
 </code></pre>
 
-<p>Puppet will download the new etcd, update the symlinks for etcd binary and
-restart the etcd service.</p>
+<p>Puppet will download the new etcd, update the symlinks for etcd binary and restart the etcd service.</p>
 
 <h3 id="label-Reference">Reference</h3>
 
-<p><a href="http://tailored-automation.github.io/puppet-module-etcd/">Puppet
-Strings documentation</a></p>
+<p><a href="http://tailored-automation.github.io/puppet-module-etcd/">Puppet Strings documentation</a></p>
 
 <h3 id="label-Limitations">Limitations</h3>
 
