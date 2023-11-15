@@ -9,6 +9,6 @@ fixtures:
     archive:
       repo: https://github.com/voxpupuli/puppet-archive.git
     systemd:
-      repo: https://github.com/camptocamp/puppet-systemd.git
+      repo: https://github.com/voxpupuli/puppet-systemd.git
   symlinks:
     etcd: "#{source_dir}"

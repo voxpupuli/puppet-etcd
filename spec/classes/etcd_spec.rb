@@ -3,7 +3,11 @@ require 'spec_helper'
 describe 'etcd' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let(:facts) { os_facts }
+      # Debian 11 fails to set arch so stub here
+      let(:facts) do
+        os_facts[:os]['architecture'] = 'x86_64'
+        os_facts
+      end
 
       it { is_expected.to compile.with_all_deps }
 
