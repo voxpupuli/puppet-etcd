@@ -10,6 +10,7 @@
     * [Basic Etcd](#basic-etcd)
     * [Clustered Etcd](#clustered-etcd)
     * [Etcd Upgrades](#etcd-upgrades)
+    * [SSL configuration](#ssl-configuration)
 1. [Reference](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
 
@@ -86,6 +87,37 @@ class { 'etcd':
 ```
 
 Puppet will download the new etcd, update the symlinks for etcd binary and restart the etcd service.
+
+### SSL configuration
+
+Below is an example of setting up SSL authentication as well as SSL peering between hosts in etcd cluster:
+
+```puppet
+class { 'etcd':
+  config => {
+    'name'                        => $facts['networking']['fqdn'],
+    'initial-advertise-peer-urls' => "https://${facts['networking']['fqdn']}:2380",
+    'listen-peer-urls'            => "https://${facts['networking']['ip']}:2380",
+    'listen-client-urls'          => "https://${facts['networking']['ip']}:2379",
+    'advertise-client-urls'       => "https://${facts['networking']['fqdn']}:2379",
+    'initial-cluster-token'       => 'etcd-cluster-1',
+    'initial-cluster'             => 'https://etcd1.example.com:2380,https://etcd2.example.com:2380,https://etcd3.example.com:2380',
+    'initial-cluster-state'       => 'new',
+    'client-transport-security'   => {
+      'trusted-ca-file'  => '/etc/pki/tls/my-ca.pem',
+      'cert-file'        => '/etc/pki/tls/etcd.crt',
+      'key-file'         => '/etc/pki/tls/etcd.key',
+      'client-cert-auth' => true,
+    },
+    'peer-transport-security'     => {
+      'trusted-ca-file'  => '/etc/pki/tls/my-ca.pem',
+      'cert-file'        => '/etc/pki/tls/etcd.crt',
+      'key-file'         => '/etc/pki/tls/etcd.key',
+      'client-cert-auth' => true,
+    },
+  },
+}
+```
 
 ### Reference
 
