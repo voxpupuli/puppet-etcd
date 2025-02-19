@@ -145,7 +145,7 @@ class etcd (
     owner   => $user,
     group   => $group,
     mode    => '0600',
-    content => to_yaml($config),
+    content => stdlib::to_yaml($config),
     notify  => Service['etcd'],
   }
 
