@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v1.1.0](https://github.com/tailored-automation/puppet-module-etcd/tree/v1.1.0) (2025-02-19)
+
+[Full Changelog](https://github.com/tailored-automation/puppet-module-etcd/compare/v1.0.0...v1.1.0)
+
+### Added
+
+- update to\_yaml\(\)-\>stdlib::to\_yaml\(\) [\#16](https://github.com/tailored-automation/puppet-module-etcd/pull/16) ([bastelfreak](https://github.com/bastelfreak))
+- puppet/systemd: Allow 7.x & 8.x [\#15](https://github.com/tailored-automation/puppet-module-etcd/pull/15) ([bastelfreak](https://github.com/bastelfreak))
+
+### Merged pull requests:
+
+- Add documentation on how to configure SSL [\#13](https://github.com/tailored-automation/puppet-module-etcd/pull/13) ([treydock](https://github.com/treydock))
+- Test stdlib 9.x with regular unit tests [\#12](https://github.com/tailored-automation/puppet-module-etcd/pull/12) ([treydock](https://github.com/treydock))
+
 ## [v1.0.0](https://github.com/tailored-automation/puppet-module-etcd/tree/v1.0.0) (2023-11-15)
 
 [Full Changelog](https://github.com/tailored-automation/puppet-module-etcd/compare/v0.4.0...v1.0.0)

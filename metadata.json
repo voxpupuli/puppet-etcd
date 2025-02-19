@@ -1,6 +1,6 @@
 {
   "name": "tailoredautomation-etcd",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "tailoredautomation",
   "summary": "Etcd Puppet Module",
   "license": "Apache-2.0",
