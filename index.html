@@ -78,6 +78,8 @@
 <p><a href="#clustered-etcd">Clustered Etcd</a></p>
 </li><li>
 <p><a href="#etcd-upgrades">Etcd Upgrades</a></p>
+</li><li>
+<p><a href="#ssl-configuration">SSL configuration</a></p>
 </li></ul>
 </li><li>
 <p><a href="#reference">Reference</a></p>
@@ -153,6 +155,36 @@
 </code></pre>
 
 <p>Puppet will download the new etcd, update the symlinks for etcd binary and restart the etcd service.</p>
+
+<h3 id="label-SSL+configuration">SSL configuration</h3>
+
+<p>Below is an example of setting up SSL authentication as well as SSL peering between hosts in etcd cluster:</p>
+
+<pre class="code ruby"><code class="ruby">class { &#39;etcd&#39;:
+  config =&gt; {
+    &#39;name&#39;                        =&gt; $facts[&#39;networking&#39;][&#39;fqdn&#39;],
+    &#39;initial-advertise-peer-urls&#39; =&gt; &quot;https://${facts[&#39;networking&#39;][&#39;fqdn&#39;]}:2380&quot;,
+    &#39;listen-peer-urls&#39;            =&gt; &quot;https://${facts[&#39;networking&#39;][&#39;ip&#39;]}:2380&quot;,
+    &#39;listen-client-urls&#39;          =&gt; &quot;https://${facts[&#39;networking&#39;][&#39;ip&#39;]}:2379&quot;,
+    &#39;advertise-client-urls&#39;       =&gt; &quot;https://${facts[&#39;networking&#39;][&#39;fqdn&#39;]}:2379&quot;,
+    &#39;initial-cluster-token&#39;       =&gt; &#39;etcd-cluster-1&#39;,
+    &#39;initial-cluster&#39;             =&gt; &#39;https://etcd1.example.com:2380,https://etcd2.example.com:2380,https://etcd3.example.com:2380&#39;,
+    &#39;initial-cluster-state&#39;       =&gt; &#39;new&#39;,
+    &#39;client-transport-security&#39;   =&gt; {
+      &#39;trusted-ca-file&#39;  =&gt; &#39;/etc/pki/tls/my-ca.pem&#39;,
+      &#39;cert-file&#39;        =&gt; &#39;/etc/pki/tls/etcd.crt&#39;,
+      &#39;key-file&#39;         =&gt; &#39;/etc/pki/tls/etcd.key&#39;,
+      &#39;client-cert-auth&#39; =&gt; true,
+    },
+    &#39;peer-transport-security&#39;     =&gt; {
+      &#39;trusted-ca-file&#39;  =&gt; &#39;/etc/pki/tls/my-ca.pem&#39;,
+      &#39;cert-file&#39;        =&gt; &#39;/etc/pki/tls/etcd.crt&#39;,
+      &#39;key-file&#39;         =&gt; &#39;/etc/pki/tls/etcd.key&#39;,
+      &#39;client-cert-auth&#39; =&gt; true,
+    },
+  },
+}
+</code></pre>
 
 <h3 id="label-Reference">Reference</h3>
 
