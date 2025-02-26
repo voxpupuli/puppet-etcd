@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'etcd' do
@@ -16,7 +18,7 @@ describe 'etcd' do
           ensure: 'directory',
           owner: 'root',
           group: 'root',
-          mode: '0755',
+          mode: '0755'
         )
       end
 
@@ -34,7 +36,7 @@ describe 'etcd' do
           before: [
             'File[etcd]',
             'File[etcdctl]',
-          ],
+          ]
         )
       end
 
@@ -43,15 +45,16 @@ describe 'etcd' do
           ensure: 'link',
           path: '/usr/bin/etcd',
           target: '/opt/etcd-3.4.7/etcd',
-          notify: 'Service[etcd]',
+          notify: 'Service[etcd]'
         )
       end
+
       it do
         is_expected.to contain_file('etcdctl').with(
           ensure: 'link',
           path: '/usr/bin/etcdctl',
           target: '/opt/etcd-3.4.7/etcdctl',
-          notify: nil,
+          notify: nil
         )
       end
 
@@ -66,9 +69,10 @@ describe 'etcd' do
           home: '/var/lib/etcd',
           managehome: 'false',
           system: 'true',
-          before: 'Service[etcd]',
+          before: 'Service[etcd]'
         )
       end
+
       it do
         is_expected.to contain_group('etcd').with(
           ensure: 'present',
@@ -76,7 +80,7 @@ describe 'etcd' do
           forcelocal: 'true',
           gid: nil,
           system: 'true',
-          before: 'Service[etcd]',
+          before: 'Service[etcd]'
         )
       end
 
@@ -87,9 +91,10 @@ describe 'etcd' do
           owner: 'etcd',
           group: 'etcd',
           mode: '0600',
-          notify: 'Service[etcd]',
+          notify: 'Service[etcd]'
         )
       end
+
       it 'has correct config contents' do
         content = catalogue.resource('file', 'etcd.yaml').send(:parameters)[:content]
         config = YAML.safe_load(content)
@@ -98,6 +103,7 @@ describe 'etcd' do
         }
         expect(config).to eq(expected_config)
       end
+
       it do
         is_expected.to contain_file('etcd-data-dir').with(
           ensure: 'directory',
@@ -105,9 +111,10 @@ describe 'etcd' do
           owner: 'etcd',
           group: 'etcd',
           mode: '0700',
-          notify: 'Service[etcd]',
+          notify: 'Service[etcd]'
         )
       end
+
       it { is_expected.not_to contain_file('etcd-wal-dir') }
 
       it do
@@ -138,14 +145,12 @@ describe 'etcd' do
         expect(content.split("\n") & expected_lines).to match_array expected_lines.uniq
       end
 
-      if Gem::Version.new(os_facts[:puppetversion]) < Gem::Version.new('6.1.0')
-        it { is_expected.to contain_class('systemd::systemctl::daemon_reload').that_comes_before('Service[etcd]') }
-      end
+      it { is_expected.to contain_class('systemd::systemctl::daemon_reload').that_comes_before('Service[etcd]') } if Gem::Version.new(os_facts[:puppetversion]) < Gem::Version.new('6.1.0')
 
       it do
         is_expected.to contain_service('etcd').with(
           ensure: 'running',
-          enable: 'true',
+          enable: 'true'
         )
       end
 
@@ -168,6 +173,7 @@ describe 'etcd' do
           }
           expect(config).to eq(expected_config)
         end
+
         it do
           is_expected.to contain_file('etcd-wal-dir').with(
             ensure: 'directory',
@@ -175,7 +181,7 @@ describe 'etcd' do
             owner: 'etcd',
             group: 'etcd',
             mode: '0700',
-            notify: 'Service[etcd]',
+            notify: 'Service[etcd]'
           )
         end
       end
@@ -218,7 +224,7 @@ describe 'etcd' do
             ensure: 'directory',
             owner: 'root',
             group: 'root',
-            mode: '0755',
+            mode: '0755'
           )
         end
 
@@ -236,7 +242,7 @@ describe 'etcd' do
             before: [
               'File[etcd]',
               'File[etcdctl]',
-            ],
+            ]
           )
         end
 
@@ -245,15 +251,16 @@ describe 'etcd' do
             ensure: 'link',
             path: '/bin/etcd',
             target: '/downloads/etcd-4.0.0/etcd',
-            notify: 'Service[etcd]',
+            notify: 'Service[etcd]'
           )
         end
+
         it do
           is_expected.to contain_file('etcdctl').with(
             ensure: 'link',
             path: '/bin/etcdctl',
             target: '/downloads/etcd-4.0.0/etcdctl',
-            notify: nil,
+            notify: nil
           )
         end
 
@@ -268,9 +275,10 @@ describe 'etcd' do
             home: '/etcd-data',
             managehome: 'false',
             system: 'true',
-            before: 'Service[etcd]',
+            before: 'Service[etcd]'
           )
         end
+
         it do
           is_expected.to contain_group('etcd').with(
             ensure: 'present',
@@ -278,7 +286,7 @@ describe 'etcd' do
             forcelocal: 'true',
             gid: '1001',
             system: 'true',
-            before: 'Service[etcd]',
+            before: 'Service[etcd]'
           )
         end
 
@@ -289,9 +297,10 @@ describe 'etcd' do
             owner: 'etcd-user',
             group: 'etcd-group',
             mode: '0600',
-            notify: 'Service[etcd]',
+            notify: 'Service[etcd]'
           )
         end
+
         it 'has correct config contents' do
           content = catalogue.resource('file', 'etcd.yaml').send(:parameters)[:content]
           config = YAML.safe_load(content)
@@ -301,6 +310,7 @@ describe 'etcd' do
           }
           expect(config).to eq(expected_config)
         end
+
         it do
           is_expected.to contain_file('etcd-data-dir').with(
             ensure: 'directory',
@@ -308,9 +318,10 @@ describe 'etcd' do
             owner: 'etcd-user',
             group: 'etcd-group',
             mode: '0700',
-            notify: 'Service[etcd]',
+            notify: 'Service[etcd]'
           )
         end
+
         it do
           is_expected.to contain_file('etcd-wal-dir').with(
             ensure: 'directory',
@@ -318,7 +329,7 @@ describe 'etcd' do
             owner: 'etcd-user',
             group: 'etcd-group',
             mode: '0700',
-            notify: 'Service[etcd]',
+            notify: 'Service[etcd]'
           )
         end
 
