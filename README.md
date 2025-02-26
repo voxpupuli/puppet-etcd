@@ -7,7 +7,7 @@
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/etcd.svg)](https://forge.puppetlabs.com/puppet/etcd)
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/etcd.svg)](https://forge.puppetlabs.com/puppet/etcd)
 [![puppetmodule.info docs](http://www.puppetmodule.info/images/badge.png)](http://www.puppetmodule.info/m/puppet-etcd)
-[![AGPL v3 License](https://img.shields.io/github/license/voxpupuli/puppet-etcd.svg)](LICENSE)
+[![Apache-2 License](https://img.shields.io/github/license/voxpupuli/puppet-etcd.svg)](LICENSE)
 [![Donated by Tailored Automation](https://img.shields.io/badge/donated%20by-Tailored%20Automation-fb7047.svg)](#transfer-notice)
 
 #### Table of Contents
@@ -139,4 +139,4 @@ Check the metadata.json for all tested operating systems.
 
 This plugin was originally authored by [Tailored Automation](https://tailoredautomation.io/).
 The maintainer preferred that Vox Pupuli take ownership of the module for future improvement and maintenance.
-Existing pull requests and issues were transferred over, please fork and continue to contribute here instead of Camptocamp.
+Existing pull requests and issues were transferred over, please fork and continue to contribute here.
