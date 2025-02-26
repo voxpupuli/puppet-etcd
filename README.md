@@ -1,4 +1,14 @@
-# puppet-module-etcd
+# puppet-etcd
+
+[![Build Status](https://github.com/voxpupuli/puppet-etcd/workflows/CI/badge.svg)](https://github.com/voxpupuli/puppet-etcd/actions?query=workflow%3ACI)
+[![Release](https://github.com/voxpupuli/puppet-etcd/actions/workflows/release.yml/badge.svg)](https://github.com/voxpupuli/puppet-etcd/actions/workflows/release.yml)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/etcd.svg)](https://forge.puppetlabs.com/puppet/etcd)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/etcd.svg)](https://forge.puppetlabs.com/puppet/etcd)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/etcd.svg)](https://forge.puppetlabs.com/puppet/etcd)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/etcd.svg)](https://forge.puppetlabs.com/puppet/etcd)
+[![puppetmodule.info docs](http://www.puppetmodule.info/images/badge.png)](http://www.puppetmodule.info/m/puppet-etcd)
+[![AGPL v3 License](https://img.shields.io/github/license/voxpupuli/puppet-etcd.svg)](LICENSE)
+[![Donated by Tailored Automation](https://img.shields.io/badge/donated%20by-Tailored%20Automation-fb7047.svg)](#transfer-notice)
 
 #### Table of Contents
 
@@ -13,6 +23,7 @@
     * [SSL configuration](#ssl-configuration)
 1. [Reference](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
+1. [Transfer Notice](#transfer-notice)
 
 ## Module Description
 
@@ -119,10 +130,13 @@ class { 'etcd':
 }
 ```
 
-### Reference
-
-[Puppet Strings documentation](http://tailored-automation.github.io/puppet-module-etcd/)
-
 ### Limitations
 
 This module is only supported on Linux based systems.
+Check the metadata.json for all tested operating systems.
+
+## Transfer Notice
+
+This plugin was originally authored by [Tailored Automation](https://tailoredautomation.io/).
+The maintainer preferred that Vox Pupuli take ownership of the module for future improvement and maintenance.
+Existing pull requests and issues were transferred over, please fork and continue to contribute here instead of Camptocamp.
