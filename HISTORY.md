@@ -1,23 +1,3 @@
-# Changelog
-
-All notable changes to this project will be documented in this file.
-Each new release typically also includes the latest modulesync defaults.
-These should not affect the functionality of the module.
-
-## [v1.2.0](https://github.com/voxpupuli/puppet-etcd/tree/v1.2.0) (2025-02-26)
-
-[Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v1.1.0...v1.2.0)
-
-**Implemented enhancements:**
-
-- Add Debian 12 & Ubuntu 24.04 support [\#21](https://github.com/voxpupuli/puppet-etcd/pull/21) ([bastelfreak](https://github.com/bastelfreak))
-- Add OracleLinux/CentOS/AlmaLinux support [\#22](https://github.com/voxpupuli/puppet-etcd/pull/22) ([bastelfreak](https://github.com/bastelfreak))
-
-**Merged pull requests:**
-
-- metadata.json & README.md: Adjust for migration to Vox Pupuli [\#20](https://github.com/voxpupuli/puppet-etcd/pull/20) ([bastelfreak](https://github.com/bastelfreak))
-- Drop Puppet \< 6.1.0 compatibility code [\#19](https://github.com/voxpupuli/puppet-etcd/pull/19) ([bastelfreak](https://github.com/bastelfreak))
-
 # Change log
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
