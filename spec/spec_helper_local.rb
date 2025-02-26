@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.configure do |config|
   # Use facterdb facts for facter 3.x rather than
   # facterdb for detected facter gem version which would be 2.x
