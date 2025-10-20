@@ -4,14 +4,32 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.0.0) (2025-10-20)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v1.2.0...v2.0.0)
+
+**Breaking changes:**
+
+- Drop puppet, update openvox minimum version to 8.19 [\#31](https://github.com/voxpupuli/puppet-etcd/pull/31) ([TheMeier](https://github.com/TheMeier))
+
+**Implemented enhancements:**
+
+- Allow puppet-systemd 9.x [\#36](https://github.com/voxpupuli/puppet-etcd/pull/36) ([TheMeier](https://github.com/TheMeier))
+- puppet/archive Allow 8.x [\#30](https://github.com/voxpupuli/puppet-etcd/pull/30) ([TheMeier](https://github.com/TheMeier))
+- metadata.json: Add OpenVox [\#26](https://github.com/voxpupuli/puppet-etcd/pull/26) ([jstraw](https://github.com/jstraw))
+
+**Closed issues:**
+
+- Migrate module to Vox Pupuli [\#17](https://github.com/voxpupuli/puppet-etcd/issues/17)
+
 ## [v1.2.0](https://github.com/voxpupuli/puppet-etcd/tree/v1.2.0) (2025-02-26)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v1.1.0...v1.2.0)
 
 **Implemented enhancements:**
 
-- Add Debian 12 & Ubuntu 24.04 support [\#21](https://github.com/voxpupuli/puppet-etcd/pull/21) ([bastelfreak](https://github.com/bastelfreak))
 - Add OracleLinux/CentOS/AlmaLinux support [\#22](https://github.com/voxpupuli/puppet-etcd/pull/22) ([bastelfreak](https://github.com/bastelfreak))
+- Add Debian 12 & Ubuntu 24.04 support [\#21](https://github.com/voxpupuli/puppet-etcd/pull/21) ([bastelfreak](https://github.com/bastelfreak))
 
 **Merged pull requests:**
 
