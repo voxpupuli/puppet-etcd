@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.1.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.1.0) (2025-12-01)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v2.0.0...v2.1.0)
+
+**Implemented enhancements:**
+
+- Add EL10 support [\#39](https://github.com/voxpupuli/puppet-etcd/pull/39) ([bastelfreak](https://github.com/bastelfreak))
+- Add Debian 13 support [\#38](https://github.com/voxpupuli/puppet-etcd/pull/38) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v2.0.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.0.0) (2025-10-20)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v1.2.0...v2.0.0)
