@@ -106,6 +106,7 @@ Below is an example of setting up SSL authentication as well as SSL peering betw
 ```puppet
 class { 'etcd':
   config => {
+    'data-dir'                    => '/var/lib/etcd',
     'name'                        => $facts['networking']['fqdn'],
     'initial-advertise-peer-urls' => "https://${facts['networking']['fqdn']}:2380",
     'listen-peer-urls'            => "https://${facts['networking']['ip']}:2380",
