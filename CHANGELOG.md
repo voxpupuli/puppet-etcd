@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.2.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.2.0) (2026-10-16)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v2.1.0...v2.2.0)
+
+**Implemented enhancements:**
+
+- puppetlabs/stdlib: Allow 10.x & puppet/systemd: Allow 10.x [\#49](https://github.com/voxpupuli/puppet-etcd/pull/49) ([bastelfreak](https://github.com/bastelfreak))
+- Update requirements to allow OpenVox 9 [\#48](https://github.com/voxpupuli/puppet-etcd/pull/48) ([sebastianrakel](https://github.com/sebastianrakel))
+
 ## [v2.1.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.1.0) (2025-12-01)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v2.0.0...v2.1.0)
