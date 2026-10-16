@@ -16,7 +16,7 @@ Manage etcd
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 include etcd
@@ -183,4 +183,3 @@ Data type: `Integer`
 The value for systemd LimitNOFILE unit option
 
 Default value: `40000`
-
