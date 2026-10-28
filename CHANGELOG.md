@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.3.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.3.0) (2026-10-28)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v2.2.0...v2.3.0)
+
+**Implemented enhancements:**
+
+- puppet/systemd: Allow 11.x [\#51](https://github.com/voxpupuli/puppet-etcd/pull/51) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v2.2.0](https://github.com/voxpupuli/puppet-etcd/tree/v2.2.0) (2026-10-16)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-etcd/compare/v2.1.0...v2.2.0)
